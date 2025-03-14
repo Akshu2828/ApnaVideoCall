@@ -7,7 +7,11 @@ export default defineConfig({
     outDir: "dist",
   },
   server: {
+    host: true,
     port: 3000,
   },
-  base: "/",
+  preview: {
+    port: 5000,
+  },
+  base: "./",
 });
