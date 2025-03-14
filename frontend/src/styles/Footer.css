@@ -1,0 +1,10 @@
+#Footer {
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(235, 232, 232);
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

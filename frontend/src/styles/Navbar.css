@@ -1,0 +1,29 @@
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  border-bottom: 1px solid #ddd;
+}
+
+#navbarNav {
+  position: absolute;
+  right: 0;
+  /* margin-right: 1rem; */
+  display: flex;
+}
+
+#navbarNav a {
+  margin-right: 10px;
+}
+
+.navbar-brand {
+  color: #007aff !important;
+  font-weight: bold;
+}
+
+@media (max-width: 450px) {
+  #navbarNav {
+    width: 40vw;
+  }
+}

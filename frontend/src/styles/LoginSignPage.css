@@ -1,0 +1,56 @@
+.AuthBody {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.AuthPage {
+  background-color: #d9eaff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  height: 60vh;
+  width: 40vw;
+  border-radius: 20px;
+}
+
+.Auth-btns {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-button {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.Auth-form {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-bottom {
+  height: 10vh;
+  text-align: center;
+}
+
+@media (max-width: 450px) {
+  .AuthBody {
+    margin-top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .AuthPage {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+}
