@@ -5,7 +5,6 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
-import LandingPage from "./pages/landingPage";
 import LoginSignPage from "./pages/LoginSignPage";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import VideoMeetComponent from "./pages/VideoMeetComponent";
@@ -13,6 +12,7 @@ import History from "./pages/History";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import { useEffect } from "react";
+import LandingPage from "./pages/LandinngPage";
 
 function App() {
   return (
