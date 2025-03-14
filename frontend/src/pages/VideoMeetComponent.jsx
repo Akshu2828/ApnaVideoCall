@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { io } from "socket.io-client";
 import "../styles/VideoMeetComponent.css";
 
-const server = "http://localhost:8000";
+const server = "https://apnavideocallbackend-8wul.onrender.com";
 
 let connections = {};
 

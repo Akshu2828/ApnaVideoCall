@@ -3,7 +3,7 @@ import httpStatus from "http-status";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const server = "http://localhost:8000/api/v1/users";
+const server = "https://apnavideocallbackend-8wul.onrender.com/api/v1/users";
 
 export const AuthContext = createContext({});
 
