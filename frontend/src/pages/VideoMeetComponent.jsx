@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import "../styles/VideoMeetComponent.css";
 import server from "../../environment";
 
-const server = server;
+const server_url = server;
 let connections = {};
 
 const peerConfigConnections = {
@@ -319,7 +319,7 @@ export default function VideoMeetComponent() {
   };
 
   let connectToSocketServer = () => {
-    socketRef.current = io.connect(server, { secure: false });
+    socketRef.current = io.connect(server_url, { secure: false });
 
     socketRef.current.on("signal", gotMessageFromServer);
 
