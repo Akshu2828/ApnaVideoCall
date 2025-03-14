@@ -2,13 +2,12 @@ import axios from "axios";
 import httpStatus from "http-status";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const server = "https://apnavideocallbackend-8wul.onrender.com/api/v1/users";
+import server from "../../environment";
 
 export const AuthContext = createContext({});
 
 const client = axios.create({
-  baseURL: server,
+  baseURL: `${server}/api/v1/users`,
 });
 
 export const AuthProvider = ({ children }) => {

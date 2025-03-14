@@ -2,9 +2,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { io } from "socket.io-client";
 import "../styles/VideoMeetComponent.css";
+import server from "../../environment";
 
-const server = "https://apnavideocallbackend-8wul.onrender.com";
-
+const server = server;
 let connections = {};
 
 const peerConfigConnections = {
