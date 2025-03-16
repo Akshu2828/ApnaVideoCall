@@ -16,6 +16,7 @@ export default function VideoMeetComponent() {
   let socketIdRef = useRef();
 
   let localVideoref = useRef();
+  const localStreamRef = useRef(null);
   const videoRef = useRef([]);
 
   let [videoAvailable, setVideoAvailable] = useState(false);
@@ -23,7 +24,12 @@ export default function VideoMeetComponent() {
   let [video, setVideo] = useState();
   let [audio, setAudio] = useState();
   let [videos, setVideos] = useState([]);
+
+  let [videoIcon, setVideoIcon] = useState(true);
   let [camera, setCamera] = useState(true);
+
+  let [audioIcon, setAudioIcon] = useState(true);
+  let [mic, setMic] = useState(true);
 
   let [screen, setScreen] = useState();
   let [screenAvailable, setScreenAvailable] = useState();
@@ -127,6 +133,7 @@ export default function VideoMeetComponent() {
           audio: audioAvailable,
         });
         if (userMediaStream) {
+          localStreamRef.current = userMediaStream;
           window.localStream = userMediaStream;
           if (localVideoref.current) {
             localVideoref.current.srcObject = userMediaStream;
@@ -456,19 +463,25 @@ export default function VideoMeetComponent() {
   };
 
   const handleVideo = useCallback(() => {
-    video = !video;
-    console.log(video);
-    window.localStream.getVideoTracks()[0].enabled = video;
+    const videoTrack = localVideoref.current.srcObject.getVideoTracks()[0];
+    if (videoTrack) {
+      videoTrack.enabled = !videoTrack.enabled;
+      setCamera(videoTrack.enabled);
+      setVideoIcon(videoTrack.enabled);
+    } else {
+      console.error("No video track found");
+    }
   }, []);
 
-  // const handleCamera = useCallback(() => {
-  //   setCamera((prevCamera) => !prevCamera);
-  // }, []);
-
   let handleAudio = useCallback(() => {
-    audio = !audio;
-    console.log("audio", audio);
-    window.localStream.getAudioTracks()[0].enabled = audio;
+    const audioTrack = window.localStream?.getAudioTracks()[0];
+    if (audioTrack) {
+      audioTrack.enabled = !audioTrack.enabled;
+      setMic(audioTrack.enabled);
+      setAudioIcon(audioTrack.enabled);
+    } else {
+      console.error("No video track found");
+    }
   }, []);
 
   useEffect(() => {
@@ -516,6 +529,9 @@ export default function VideoMeetComponent() {
       {askForUsername === true ? (
         <div>
           <h2>Enter into Lobby</h2>
+          <p style={{ color: "red" }}>
+            Double click on Videoicon and AudioIcon to turn it Off!
+          </p>
           <div className="col-4 mb-3">
             <textarea
               placeholder="Enter Username"
@@ -548,14 +564,14 @@ export default function VideoMeetComponent() {
                 handleVideo();
               }}
             >
-              {camera === true ? (
+              {videoIcon === true ? (
                 <i className="fa-solid fa-video"></i>
               ) : (
                 <i className="fa-solid fa-video-slash"></i>
               )}
             </button>
             <button onClick={handleAudio}>
-              {audio === true ? (
+              {audioIcon === true ? (
                 <i className="fa-solid fa-microphone"></i>
               ) : (
                 <i className="fa-solid fa-microphone-slash"></i>
