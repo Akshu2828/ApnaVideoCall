@@ -14,7 +14,7 @@ This is a real-time video call application built using **Socket.io** and other m
 - **Screen sharing** 
 
 ## Tech Stack
-- **Frontend**: React
+- **Frontend**: React, JavaScript
 - **Backend**: Node.js, Express.js
 - **WebSocket**: Socket.io
 - **Deployment**: Render and Vercel
